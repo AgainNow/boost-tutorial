@@ -1,4 +1,4 @@
-// Daytime.3 - An asynchronous TCP daytime server.
+// Daytime.3 - An asynchronous TCP daytime server. 异步并发TCP服务器
 
 #include <iostream>
 #include <ctime>
@@ -37,7 +37,7 @@ private:
     tcp_connection(boost::asio::io_context& io_context): socket_(io_context) {}
     
     // 处理写入后的结果：如处理异常，或记录已传输字节数
-    void handle_write(const boost::system::error_code& error, size_t bytes_transferred) {}
+    void handle_write(const boost::system::error_code& error, std::size_t bytes_transferred) {}
 
     std::string make_daytime_string() {
         std::time_t now = time(0);
