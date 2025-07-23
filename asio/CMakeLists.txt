@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # 库编译
 
 # 查找库，todo
-find_package(Boost REQUIRED COMPONENTS system)
+find_package(boost REQUIRED)
 
 # 引入头文件
 # include_directories(include)
@@ -28,16 +28,18 @@ add_executable(${PROJECT_NAME}_timer5 timer5.cpp)
 
 add_executable(${PROJECT_NAME}_daytime1 daytime1.cpp)
 add_executable(${PROJECT_NAME}_daytime2 daytime2.cpp)
+add_executable(${PROJECT_NAME}_daytime3 daytime3.cpp)
 
 # 将搜索到的头文件路径添加到目标，格式：libname_INCLUDE_DIRS
 # target_include_directories(${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
 
 # 引入三方库，格式：libname_LIBRARES
-target_link_libraries(${PROJECT_NAME}_timer1 PRIVATE Boost::system)
-target_link_libraries(${PROJECT_NAME}_timer2 PRIVATE Boost::system)
-target_link_libraries(${PROJECT_NAME}_timer3 PRIVATE Boost::system)
-target_link_libraries(${PROJECT_NAME}_timer4 PRIVATE Boost::system)
-target_link_libraries(${PROJECT_NAME}_timer5 PRIVATE Boost::system)
+target_link_libraries(${PROJECT_NAME}_timer1 PRIVATE ${boost_LIBRARES})
+target_link_libraries(${PROJECT_NAME}_timer2 PRIVATE ${boost_LIBRARES})
+target_link_libraries(${PROJECT_NAME}_timer3 PRIVATE ${boost_LIBRARES})
+target_link_libraries(${PROJECT_NAME}_timer4 PRIVATE ${boost_LIBRARES})
+target_link_libraries(${PROJECT_NAME}_timer5 PRIVATE ${boost_LIBRARES})
 
-target_link_libraries(${PROJECT_NAME}_daytime1 PRIVATE Boost::system)
-target_link_libraries(${PROJECT_NAME}_daytime2 PRIVATE Boost::system)
+target_link_libraries(${PROJECT_NAME}_daytime1 PRIVATE ${boost_LIBRARES})
+target_link_libraries(${PROJECT_NAME}_daytime2 PRIVATE ${boost_LIBRARES})
+target_link_libraries(${PROJECT_NAME}_daytime3 PRIVATE ${boost_LIBRARES})

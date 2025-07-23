@@ -1,4 +1,4 @@
-// Daytime.2 - A synchronous TCP daytime server
+// Daytime.2 - A synchronous TCP daytime server 获取服务器时间的tcp同步服务端
 
 #include <ctime>
 #include <iostream>
@@ -18,7 +18,9 @@ int main() {
         tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), 13));
         for (;;) {
             tcp::socket socket(io_context);
+            // 阻塞当前线程，等待连接
             acceptor.accept(socket);
+            // 接收到请求后，返回当前时间
             std::string message = make_daytime_string();
             boost::system::error_code ignored_error;
             boost::asio::write(socket, boost::asio::buffer(message), ignored_error);
